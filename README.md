@@ -1,13 +1,13 @@
-#BeagleBone Black Driver Library (BBDL)
+# BeagleBone Black Driver Library (BBDL)
 
 
-## Syslog message of BBDL
+## Syslog messages of BBDL
 
 ```bash
     tail -f /var/log/syslog | grep "BBDL"
 ```
 
-## UART Pin Configuration
+## Configuration
 
 ### Method 1
 Create configure-pins.sh file in autorun folder if using cloud9:
@@ -17,14 +17,16 @@ Create configure-pins.sh file in autorun folder if using cloud9:
 config-pin p9.26 uart
 config-pin p9.24 uart
 ```
+
 ### Method 2
 Debian image ~16.04 switched from capemgr to u-boot overlays. To enable Uart 1, in /boot/uEnv.txt set:
 ```bash
 uboot_overlay_addr0=/lib/firmware/BB-UART1-00A0.dtbo 
 ```
 And then reboot.
-This method is explained here [here](https://groups.google.com/forum/#!topic/beagleboard/OG1_tts4OcU).
-###Method 3
+This method is explained [here](https://groups.google.com/forum/#!topic/beagleboard/OG1_tts4OcU).
+
+### Method 3
 #### Create file `/usr/bin/configure-pins.sh`
 This method is explained [here](https://gist.github.com/pdp7/d4770a6ba17e666848796bf5cfd0caee).
 * **sudo nano /usr/bin/configure-pins.sh**
@@ -73,3 +75,11 @@ debian@beaglebone:~$ config-pin -q p9.24 && config-pin -q p9.26
 P9_24 Mode: uart
 P9_26 Mode: uart
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* sijpesteijn/BBCLib
