@@ -3,7 +3,7 @@
  *                                                                          *
  * This file is part of BeagleBone Black Drivers Library (BBDL).            *
  *                                                                          *
- *   BBBDL is free software: you can redistribute it and/or modify it       *
+ *   BBDL is free software: you can redistribute it and/or modify it        *
  *   under the terms of the GNU Lesser General Public License as published  *
  *   by the Free Software Foundation, either version 3 of the License, or   *
  *   (at your option) any later version.                                    *
@@ -14,7 +14,7 @@
  *   GNU Lesser General Public License for more details.                    *
  *                                                                          *
  *   You should have received a copy of the GNU Lesser General Public       *
- *   License along with Box.  If not, see <http://www.gnu.org/licenses/>.   *
+ *   License along with BBDL.  If not, see <http://www.gnu.org/licenses/>.  *
  ****************************************************************************/
  
 /*!

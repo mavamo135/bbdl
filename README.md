@@ -76,6 +76,10 @@ P9_24 Mode: uart
 P9_26 Mode: uart
 ```
 
+# TODO
+
+* Automatic dependency tracking in Makefile
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

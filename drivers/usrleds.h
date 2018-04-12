@@ -3,7 +3,7 @@
  *                                                                          *
  * This file is part of BeagleBone Black Drivers Library (BBDL).            *
  *                                                                          *
- *   BBBDL is free software: you can redistribute it and/or modify it       *
+ *   BBDL is free software: you can redistribute it and/or modify it        *
  *   under the terms of the GNU Lesser General Public License as published  *
  *   by the Free Software Foundation, either version 3 of the License, or   *
  *   (at your option) any later version.                                    *
@@ -14,7 +14,7 @@
  *   GNU Lesser General Public License for more details.                    *
  *                                                                          *
  *   You should have received a copy of the GNU Lesser General Public       *
- *   License along with Box.  If not, see <http://www.gnu.org/licenses/>.   *
+ *   License along with BBDL.  If not, see <http://www.gnu.org/licenses/>.  *
  ****************************************************************************/
  
 /*!
@@ -41,15 +41,15 @@
  *  #include <stddef.h>
  *
  *  // User LEDs Header file
- *  #include <ti/drivers/GPIO.h>
+ *  #include "/drivers/usrleds.h"
  *
  *  main()
  *  {
  *      // Call GPIO driver init function
- *      USRLEDSinit();
+ *      usrleds_init();
  *
  *      // Turn on User LED 1
- *      USRLEDS_write(LED1, 1);
+ *      usrleds_write(LED1, 1);
  *
  *  }
  *
@@ -57,7 +57,7 @@
  *
  *  ### Initializing the User LEDs Driver #
  *
- *  USRLEDS_init() must be called before any other User LEDs APIs.  This function
+ *  usrleds_init() must be called before any other User LEDs APIs.  This function
  *  configures all the available User LEDs.
  *
  *  ============================================================================
@@ -83,18 +83,18 @@
 void usrleds_init();
 
 /*!
- *  @brief     Writes the value to a User LED
+ *  @brief      Writes the value to a User LED
  *
  *  @param      led    Selected User LED
  *  @param      value   must be either 0 or 1
  */
-void usrleds_write(char* led, int value);
+void usrleds_write(char *led, int value);
 
 /*!
  *  @brief      Makes the selected User LED flash
  *
  *  @param      led    Selected User LED
  */
-void usrleds_flash(char* led);
+void usrleds_flash(char *led);
 
 #endif /* __USRLEDS_H_ */

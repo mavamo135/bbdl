@@ -1,23 +1,33 @@
-CFLAGS= -ansi -Wall -c
-all: project
+# The compiler to use
+CC= gcc
+# Compiler flgas
+#	-Wall turn on most, but not all, compiler warnings
+CFLAGS= -ansi -Wall -std=c99 -c
+# Objects directory
+OBJ_DIR= obj
+# Drivers directory
+SRC_DIR= drivers
+# Objects
+SRC= $(wildcard $(SRC_DIR)/*c)
+OBJ= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
+OBJ+= $(OBJ_DIR)/main.o
 
-project: ./main.o ./uart.o ./spi.o ./usrleds.o ./driver.o
-	gcc -o project ./main.o ./uart.o ./spi.o ./usrleds.o ./driver.o
+all: directories project
 
-main.o: ./main.c
-	gcc $(CFLAGS) ./main.c
-
-uart.o: ./drivers/uart.c ./drivers/uart.h
-	gcc $(CFLAGS) ./drivers/uart.c
-
-spi.o: ./drivers/spi.c ./drivers/spi.h
-	gcc $(CFLAGS) ./drivers/spi.c
-
-usrleds.o: ./drivers/usrleds.c ./drivers/usrleds.h
-	gcc $(CFLAGS) ./drivers/usrleds.c
+project: $(OBJ) 
+	gcc -o $@ $^
 	
-driver.o: ./drivers/driver.c ./drivers/driver.h
-	gcc $(CFLAGS) ./drivers/driver.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) -I$(SRC_DIR) $(CFLAGS) $< -o $@
+	
+$(OBJ_DIR)/main.o: main.c
+	$(CC) -I$(SRC_DIR) $(CFLAGS) $^ -o $@
 
+.PHONY: directories
+directories:
+	mkdir -p obj
+
+.PHONY: clean	
 clean:
-	rm -f ./main.o ./uart.o ./spi.o ./usrleds.o ./driver.o
+	rm -f $(OBJ) project
+	rmdir obj

@@ -3,7 +3,7 @@
  *                                                                          *
  * This file is part of BeagleBone Black Drivers Library (BBDL).            *
  *                                                                          *
- *   BBBDL is free software: you can redistribute it and/or modify it       *
+ *   BBDL is free software: you can redistribute it and/or modify it        *
  *   under the terms of the GNU Lesser General Public License as published  *
  *   by the Free Software Foundation, either version 3 of the License, or   *
  *   (at your option) any later version.                                    *
@@ -14,7 +14,7 @@
  *   GNU Lesser General Public License for more details.                    *
  *                                                                          *
  *   You should have received a copy of the GNU Lesser General Public       *
- *   License along with Box.  If not, see <http://www.gnu.org/licenses/>.   *
+ *   License along with BBDL.  If not, see <http://www.gnu.org/licenses/>.  *
  ****************************************************************************/
  
 /*!
@@ -54,7 +54,7 @@
  *
  *  ### Opening the UART Driver #
  *
- *  Opening a SPI requires four steps:
+ *  Opening a UART requires four steps:
  *  1.  Create and initialize a uart_properties structure.
  *  2.  Fill in the desired parameters.
  *  3.  Call uart_open(), passing the uart_properties structure.
@@ -117,7 +117,7 @@ extern int uart_open(uart_properties *uart);
 /*!
  *  @brief  Function that writes data to a UART.
  *
- *  %uart_send() writes data from a memory buffer to the SPI interface.
+ *  %uart_send() writes data from a memory buffer to the UART interface.
  *  The source is specified by \a tx and the number of bytes to write
  *  is given by \a length.
  *
@@ -166,7 +166,7 @@ extern int uart_read(uart_properties *uart,unsigned char *rx, int length);
  *  @pre	uart_open() has been called
  *	@pre	No data transfer is ongoing
  *
- *  @param  uart		A spi_properties structure 
+ *  @param  uart		A uart_properties structure 
  *
  *  @return Returns if an error ocurred, 0 means no error ocurred
  */
